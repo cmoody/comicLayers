@@ -28,33 +28,30 @@ footer {
 
 .panel {
 	position: absolute;
+	-webkit-transform-style: preserve-3d;
+			transform-style: preserve-3d;
 	-webkit-transition: all 1s;
 			transition: all 1s;
 }
 
-/* Tweak top and left to spread out more */
 .pencil.skewed {
-	left: -100px;
-	top: -20px;
+	-webkit-transform: translate3d(-100px, -20px, 0) scale(0.7) skewY(-10deg);
+			transform: translate3d(-100px, -20px, 0) scale(0.7) skewY(-10deg);
 }
 
 .ink.skewed {
-	left: 30px;
-	top: -8px;
+	-webkit-transform: translate3d(30px, -8px, 0) scale(0.7) skewY(-10deg);
+			transform: translate3d(30px, -8px, 0) scale(0.7) skewY(-10deg);
 }
 
 .color.skewed {
-	left: 115px;
-	top: 20px;
+	-webkit-transform: translate3d(120px, 20px, 0) scale(0.7) skewY(-10deg);
+			transform: translate3d(120px, 20px, 0) scale(0.7) skewY(-10deg);
 }
 
 .offscreen {
-	left: 642px;
-}
-
-.skewed {
-	-webkit-transform: scale(0.7) skewY(-10deg);
-			transform: scale(0.7) skewY(-10deg);
+	-webkit-transform: translate3d(642px, 0, 0);
+			transform: translate3d(642px, 0, 0);
 }
 
 /*******************
