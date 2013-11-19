@@ -4,14 +4,26 @@
 }
 
 body {
-	background-color: #000;
+	background-color: #fff;
     height: 500px;
     padding: 1px;
 }
 
+footer {
+	color: #000;
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+}
+
 .layers {
 	position: absolute;
+	cursor: pointer;
 	right: 0;
+	background-image: url(../img/layers.png);
+	background-repeat: no-repeat;
+	width: 48px;
+	height: 48px;
 }
 
 .panel {
@@ -22,18 +34,18 @@ body {
 
 /* Tweak top and left to spread out more */
 .pencil.skewed {
-	left: -10px
+	left: -100px;
 	top: -20px;
 }
 
 .ink.skewed {
 	left: 30px;
-	top: 20px;
+	top: -8px;
 }
 
 .color.skewed {
-	left: 60px;
-	top: 30px;
+	left: 115px;
+	top: 20px;
 }
 
 .offscreen {
@@ -54,7 +66,7 @@ body {
     min-width: 260px;
     max-width: 640px;
     margin: auto;
-    border: 12px rgba(255,255,240,1) solid;
+    border: 12px rgba(0,0,0,1) solid;
     -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,.8);
        -moz-box-shadow: 0px 0px 5px rgba(0,0,0,.8);
     		box-shadow: 0px 0px 5px rgba(0,0,0,.8);

@@ -5,65 +5,71 @@ $(function() {
 	var $container = $('#slideshow-inner img');
 	var $layers = $('.layers');
 	var $panel = $('.panel');
+	var is_skewed = false;
 
 	$layers.on('click', function(e) {
 		e.preventDefault();
 
-		// var is_skewed = $pencil.hasClass('skewed');
+		$panel.removeClass('offscreen');
 
-		// if(is_skewed) {
-		// 	$panel.removeClass('skewed');
-		// }else{
-		// 	$panel.addClass('skewed');
-		// }
-
-		// Remove all .offscreen
-		// Add skewed class
-
-		//$('#slideshow-inner ul').addClass('skew-list');
-		$panel
-			.removeClass('offscreen')
-			.addClass('skewed');
+		if(is_skewed) {
+			$panel.removeClass('skewed');
+			is_skewed = false;
+		}else{
+			$panel.addClass('skewed');
+			is_skewed = true;
+		}
 	});
 
 	$container.hammer().on("swipeleft", function() {
-	    console.log('you swiped left!');
+	    //console.log('you swiped left!');
 
-	    // Figure out logic to add .offscreen class
-	    // Select active
-	    // Add offscreen
-	    // Remove active
-	    // Grab parent and add active
-	    $('.active')
-	    	.addClass('offscreen')
-	    	.removeClass('active')
-	    	.prev()
-	    	.addClass('active');
-
-	    // Maybe make switch
-	    // if(active === pencil)
-	    //
-	    // else if(active === ink)
-	    //
-	    // else if(active === color)
-	    //
+	    changePanel('left');
 	});
 
 	$container.hammer().on("swiperight", function() {
-	    console.log('you swiped right!');
+	    //console.log('you swiped right!');
 
-	    $('.active')
-	    	.addClass('offscreen')
-	    	.removeClass('active')
-	    	.prev()
-	    	.addClass('active');
+	    changePanel('right');
 	});
 
 	$panel.hammer().on("tap", function(event) {
-        console.log('tap ' + this);
+		if(is_skewed) {
+        	// Make this better for all after selected
+        	is_skewed = false;
+
+        	$('.active').removeClass('active');
+        	$('.skewed').removeClass('skewed');
+
+        	$(this)
+        		.addClass('active')
+        		.next()
+        		.addClass('offscreen')
+        		.next()
+        		.addClass('offscreen');
+        }
     });
 
-    function changePanel() {
-
+	// Clean up logic to scale
+    function changePanel(direction) {
+    	if(direction === 'right') {
+    		// Swipe Right
+    		if(!$('#slide1').hasClass('active')) {
+		    	$('.active')
+			    	.addClass('offscreen')
+			    	.removeClass('active')
+			    	.prev()
+			    	.addClass('active');
+			}
+		}else if(direction === 'left') {
+    		// Swipe Left
+    		if(!$('#slide3').hasClass('active')) {
+	    		$('.active')
+			    	.removeClass('active')
+			    	.next()
+			    	.addClass('active')
+			    	.removeClass('offscreen');
+			}
+    	}
     }
 });
