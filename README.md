@@ -3,6 +3,8 @@ Layered Comic Book
 
 Layered Comic Book
 
+##[http://cmoody.github.io/comicLayers](Demo)
+
 #Setup
 ```node
 npm install
