@@ -12,3 +12,10 @@ grunt
 ```
 
 Starts server running at http://localhost:8000
+
+Enhancements
+============
+- Sticky side nav toolbox like photoshop
+- Artist Notes
+- Discussion
+- Replaceable ads
