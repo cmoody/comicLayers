@@ -1,0 +1,13 @@
+{
+  "name": "ComicLayers",
+  "version": "0.0.2",
+  "authors": [
+    "Chase Moody <holla@chasemoody.com>"
+  ],
+  "dependencies": {
+    "jquery": "2.1.x",
+    "hammerjs": "1.1.x",
+    "jquery-hammerjs": "1.1.x",
+    "velocity": "0.0.9"
+  }
+}
